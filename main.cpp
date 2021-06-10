@@ -18,9 +18,8 @@ int main()
     cin>>boletos_vendidos;
     cout << "cuantos ganadores hay? (Valores validos: 1 - 1000)"<< endl;
     cout << "--------------> ";
-    cout << endl;
     cin>>cant_ganadores;
-
+    cout << endl;
 
     if //Restrictions 
     (
@@ -45,10 +44,14 @@ int main()
     cout << "Desea realizar otra rifa? \n 1 = Si\n 0 = No" << endl;
     cout << "--------------> ";
     cin >> repetirRifa;
-    if (repetirRifa != 1 && repetirRifa != 0)
+    
+    while (repetirRifa != 1 && repetirRifa != 0)
     {
-      cout << "Ingresa un valor valido (1 o 2): " << endl;
+        cout << "Ingresa un valor valido (1 o 0): " << endl;
+        cout << "--------------> ";
+        cin >> repetirRifa;
     }
+    
     if (repetirRifa == 0)
     {
       cout << endl;
