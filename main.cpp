@@ -11,7 +11,8 @@ int main()
 
   srand(time(0));
 
-  while (repetirRifa == 1) //Repeat the raffle
+  //Repeat the raffle
+  while (repetirRifa == 1) 
   {
     cout << "cuantos boletos fueron vendidos? (Valores validos: 1 - 1000)"<< endl;
     cout << "--------------> ";
@@ -21,12 +22,9 @@ int main()
     cin>>cant_ganadores;
     cout << endl;
 
-    if //Restrictions 
-    (
-      (boletos_vendidos <= limiteBoletos && boletos_vendidos > 1) 
-      && 
-      (cant_ganadores < boletos_vendidos && cant_ganadores > 0)
-    )
+    //Restrictions--
+    if
+    ((boletos_vendidos <= limiteBoletos && boletos_vendidos > 1) && (cant_ganadores < boletos_vendidos && cant_ganadores > 0))
     {
       for(int x = 1; x <= cant_ganadores; x++)  
       {
@@ -39,7 +37,9 @@ int main()
       cout << endl;
       cout << "Ingresa valores validos"<< endl;
     }
+    //--Restrictions 
 
+    //Loop for repeat the raffle --
     cout << endl;
     cout << "Desea realizar otra rifa? \n 1 = Si\n 0 = No" << endl;
     cout << "--------------> ";
@@ -51,7 +51,9 @@ int main()
         cout << "--------------> ";
         cin >> repetirRifa;
     }
-    
+    //--Loop for repeat the raffle
+
+    //Exit the game
     if (repetirRifa == 0)
     {
       cout << endl;
