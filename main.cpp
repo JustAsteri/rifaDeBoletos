@@ -16,7 +16,7 @@ bool checkrep(int n, int num[], int boletos_vendidos)
     {
       return true;
     }
-  } 
+  }
   return false;
 }
 //***************************
@@ -35,6 +35,7 @@ int main()
   do //Loop if the user wants to do another raffle
   {
     cout << endl;
+    system("Color 17");
     cout << "****************************************************************" << endl;
     cout << "| Bienvenido al mejor programa de generacion de Rifas que hay! |" << endl;
     cout << "****************************************************************" << endl;
@@ -45,16 +46,18 @@ int main()
       cout << "| cuantos boletos fueron vendidos? (Valores validos: Numeros entre 1 y 1000) |" << endl;
       cout << "******************************************************************************" << endl;
       cout << "--------------> ";
-      do //Loop to check if the value is valid (numbers) 
+      do //Loop to check if the value is valid (numbers)
       {
-        try 
+        try
         {
           cin>>letras_boletos_vendidos;
           boletos_vendidos = stoi(letras_boletos_vendidos);
           if (boletos_vendidos == false)
           {
             cout << endl;
-            cout << "Ingrese numeros validos" << endl;
+            cout << "***********************"<< endl;
+              cout << "Ingrese numeros validos" << endl;
+              cout << "***********************"<< endl;
             validarEntradas = false;
           }
           else
@@ -62,7 +65,9 @@ int main()
             if (boletos_vendidos < 1 || boletos_vendidos > 1000)
             {
               cout << endl;
+              cout << "***********************"<< endl;
               cout << "Ingrese numeros validos" << endl;
+              cout << "***********************"<< endl;
               cout << endl;
             }
             validarEntradas = true;
@@ -71,10 +76,12 @@ int main()
         catch (exception e)
         {
           cout << endl;
+          cout << "***********************"<< endl;
           cout << "Ingrese numeros validos" << endl;
+          cout << "***********************"<< endl;
           cout << endl;
           validarEntradas = true;
-        } 
+        }
       } while (validarEntradas == false);
     } while (boletos_vendidos < 1 || boletos_vendidos > 1000);
 
@@ -85,16 +92,18 @@ int main()
       cout << "| cuantos ganadores hay? (Valores validos: Numeros entre 1 y " << boletos_vendidos << "" ") |" << endl;
       cout << "*******************************************************************"<< endl;
       cout << "--------------> ";
-      do //Loop to check if the value is valid (numbers) 
+      do //Loop to check if the value is valid (numbers)
       {
-        try 
+        try
         {
           cin>>letras_cant_ganadores;
           cant_ganadores = stoi(letras_cant_ganadores);
           if (cant_ganadores == false)
           {
             cout << endl;
-            cout << "Ingrese numeros validos" << endl;
+            cout << "***********************"<< endl;
+          cout << "Ingrese numeros validos" << endl;
+          cout << "***********************"<< endl;
             validarEntradas = false;
           }
           else
@@ -102,7 +111,9 @@ int main()
             if ((cant_ganadores < 1 || cant_ganadores > boletos_vendidos))
             {
               cout << endl;
+              cout << "***********************"<< endl;
               cout << "Ingrese numeros validos" << endl;
+              cout << "***********************"<< endl;
               cout << endl;
             }
             validarEntradas = true;
@@ -112,17 +123,20 @@ int main()
         catch (exception e)
         {
           cout << endl;
+          cout << "***********************"<< endl;
           cout << "Ingrese numeros validos" << endl;
+          cout << "***********************"<< endl;
           cout << endl;
           validarEntradas = true;
-        } 
+        }
       } while (validarEntradas == false);
     } while (cant_ganadores < 1 || cant_ganadores > boletos_vendidos);
     cout << endl;
     cout << endl;
 
-    for(int x = 1; x <= cant_ganadores; x++)  
+    for(int x = 1; x <= cant_ganadores; x++)
     {
+        system("Color 27");
       //Avoid repeat random numbers
       do
       {
