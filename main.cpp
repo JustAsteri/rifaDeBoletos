@@ -25,13 +25,15 @@ bool checkrep(int n, int num[], int boletos_vendidos)
 
 int main()
 {
-  int n, numero[1000], boletos_vendidos, cant_ganadores, repetirRifa = 1;
+  int n, numero[1000], boletos_vendidos, cant_ganadores;
+  bool validarEntradas;
+  string repetirRifa;
   int limiteBoletos = 1000;
 
   srand(time(0));
 
   //Repeat the raffle
-  while (repetirRifa == 1) 
+  do
   {
     cout << endl;
     cout << "****************************************************************" << endl;
@@ -86,31 +88,16 @@ int main()
       cout << "| El ganador numero " << x << " es el boleto numero: " << n << endl;
       cout << "*************************************************"<< endl;
     }
-  }
-
-  //Loop for repeat the raffle
-  cout << endl;
-  cout << "Desea realizar otra rifa? \n 1 = Si\n 0 = No" << endl;
-  cout << "--------------> ";
-  cin >> repetirRifa;
-  
-  while (repetirRifa != 1 && repetirRifa != 0)
-  {
     cout << endl;
-    cout << "Ingresa un valor valido (1 o 0): " << endl;
-    cout << endl;
-    cout << "Desea realizar otra rifa? \n 1 = Si\n 0 = No" << endl;
+    cout << "Desea realizar otra rifa? \n 1 = Si\n Cualquier otra tecla = No" << endl;
     cout << "--------------> ";
     cin >> repetirRifa;
   }
-  //***************************
+  while (repetirRifa == "1");
 
   //Exit the game
-  if (repetirRifa == 0)
-  {
-    cout << endl;
-    cout << "Gracias por usar el programa numero uno de rifas" << endl;
-  }
+  cout << endl;
+  cout << "Gracias por usar el programa numero uno de rifas" << endl;
   //***************************
   return 0;
 }
