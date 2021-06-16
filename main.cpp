@@ -24,7 +24,7 @@ bool checkrep(int n, int num[], int boletos_vendidos)
 int main()
 {
   int n, numero[1000], boletos_vendidos, cant_ganadores;
-  string letras_boletos_vendidos, letras_cant_ganadores;
+  string letras_boletos_vendidos, letras_cant_ganadores, menu;
   bool validarEntradas;
   string repetirRifa;
   int limiteBoletos = 1000;
@@ -32,14 +32,16 @@ int main()
   srand(time(0));
 
   //Repeat the raffle
-  do //Loop if the user wants to do another raffle
+  do
   {
     cout << endl;
     system("Color 17");
     cout << "****************************************************************" << endl;
     cout << "| Bienvenido al mejor programa de generacion de Rifas que hay! |" << endl;
     cout << "****************************************************************" << endl;
-    do //Loop if the user gives out of range value
+    
+    //Loop if the user gives out of range value
+    do 
     {
       cout << endl;
       cout << "******************************************************************************" << endl;
@@ -85,6 +87,7 @@ int main()
       } while (validarEntradas == false);
     } while (boletos_vendidos < 1 || boletos_vendidos > 1000);
 
+    //Loop if the user gives out of range value
     do
     {
       cout << endl;
@@ -102,8 +105,8 @@ int main()
           {
             cout << endl;
             cout << "***********************"<< endl;
-          cout << "Ingrese numeros validos" << endl;
-          cout << "***********************"<< endl;
+            cout << "Ingrese numeros validos" << endl;
+            cout << "***********************"<< endl;
             validarEntradas = false;
           }
           else
@@ -134,9 +137,10 @@ int main()
     cout << endl;
     cout << endl;
 
+    //Loop through the winners of the raffle
     for(int x = 1; x <= cant_ganadores; x++)
     {
-        system("Color 27");
+      system("Color 27");
       //Avoid repeat random numbers
       do
       {
@@ -149,18 +153,52 @@ int main()
       cout << "| El ganador numero " << x << " es el boleto numero: " << n << endl;
       cout << "*************************************************"<< endl;
     }
-    cout << endl;
-    cout << "Desea realizar otra rifa? \n 1 = Si\n Cualquier otra tecla = No" << endl;
-    cout << "--------------> ";
-    cin >> repetirRifa;
-    //system("clear"); //Linux
-    system("cls"); //Windows
+
+    //Exit menu
+    do
+    {
+      cout << endl;
+      cout << "+------------------------------------------------+" << endl;
+      menu = "| Que desea hacer?                               |\n|  Presione 1 para: Realizar otra rifa           |\n|  Presione 2 para: Ver los ganadores otra vez   |\n|  Presione culquier otra tecla para: Salir      |";
+      cout << menu << endl;
+      cout << "+------------------------------------------------+" << endl;
+      cout << endl;
+      cout << "--------------> ";
+      cin >> repetirRifa;
+      //system("clear"); //Linux
+      system("cls"); //Windows
+
+      //Condition of the menu
+      if (repetirRifa == "1")
+      {
+        validarEntradas = true;
+      }
+      else if (repetirRifa == "2")
+      {
+        for(int x = 1; x <= cant_ganadores; x++)
+        {
+          system("Color 27");
+          cout << "*************************************************"<< endl;
+          cout << "| El ganador numero " << x << " es el boleto numero: " << numero[x] << endl;
+          cout << "*************************************************"<< endl;
+        }
+        validarEntradas = false;
+      }
+      else
+      {
+        validarEntradas = true;
+      }
+    }
+    while (validarEntradas == false);
   }
   while (repetirRifa == "1");
 
-  //Exit the game
+  //end of the game
   cout << endl;
-  cout << "Gracias por usar el programa numero uno de rifas" << endl;
+  cout << "+--------------------------------------------------+" << endl;
+  cout << "| Gracias por usar el programa numero uno de rifas |" << endl;
+  cout << "+--------------------------------------------------+" << endl;
+  cout << endl;
   //***************************
   return 0;
 }
